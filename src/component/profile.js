@@ -120,7 +120,7 @@ const Profile = () => {
             <HomeIcon className="w-6 h-6" />
             <span className="mt-1 text-xs">Home</span>
           </a>
-          <a href="#project" className="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
+          <a href="/Project" className="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
             <FolderIcon className="w-6 h-6" />
             <span className="mt-1 text-xs">Project</span>
           </a>
