@@ -87,7 +87,7 @@ const Home = () => {
         <a href="https://instagram.com/gigarazkiarianda" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
           <FaInstagram className="w-6 h-6" />
         </a>
-        <a href="https://linkedin.com/gigarazkiarianda" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
+        <a href="https://www.linkedin.com/in/gigarazkiarianda/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
           <FaLinkedin className="w-6 h-6" />
         </a>
       </div>
