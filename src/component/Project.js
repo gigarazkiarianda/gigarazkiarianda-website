@@ -27,6 +27,30 @@ const Project = () => {
       image: '/assets/project1.jpg',
       tag: 'Thesis'
     },
+    {
+      name: {
+        EN: 'Snake Game',
+        ID: 'Game Ular'
+      },
+      description: {
+        EN: 'This project is a classic implementation of the game "Snake" using the Python programming language. The goal of this project is to provide a deeper understanding of the Python programming language through the development of a simple game.',
+        ID: 'Proyek ini merupakan implementasi klasik dari permainan "Snake" menggunakan bahasa pemrograman Python. Tujuan dari proyek ini adalah untuk memberikan pemahaman yang lebih mendalam tentang bahasa pemrograman Python melalui pengembangan game sederhana.'
+      },
+      image: '/assets/snake-game.png',
+      tag: 'Game Developer'
+    },
+    {
+      name: {
+        EN: 'Rock-Paper-Scissor Classification',
+        ID: 'Klasifikasi Batu-Kertas-Gunting'
+      },
+      description: {
+        EN: 'This final project aims to develop machine learning in classifying paper, rock and scissor images using TensorFlow. This model can be used in various applications, such as recognition systems, games, and educational tools.',
+        ID: 'Proyek Tugas Akhir ini bertujuan untuk mengembangkan pembelajaran mesin dalam mengklasifikasikan gambar berbentuk kertas, batu, dan gunting menggunakan TensorFlow. Model ini dapat digunakan dalam berbagai aplikasi, seperti sistem pengenalan, game, dan alat pendidikan.'
+      },
+      image: '/assets/rock-paper-scissor.png',
+      tag: 'Artificial Intelligence',
+    }
   ]);
 
   useEffect(() => {
@@ -76,7 +100,7 @@ const Project = () => {
   };
 
   return (
-    <div className={`flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-white ${darkMode ? 'dark' : ''}`}>
+    <div className={`flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-white ${darkMode ? 'dark' : ''}`}>
       <div className="absolute flex items-center space-x-4 top-4 right-4">
         <button onClick={toggleLanguage} className="focus:outline-none">
           <span className="text-lg font-bold">{language === 'EN' ? 'ID' : 'EN'}</span>
@@ -94,7 +118,7 @@ const Project = () => {
           <h3 className="text-xl font-semibold">{language === 'EN' ? 'Projects' : 'Proyek'}</h3>
         </div>
       </div>
-      <div className="w-full max-w-2xl px-4">
+      <div className="flex-1 w-full max-w-2xl px-4 pb-20 mx-auto">
         <input
           type="text"
           placeholder={language === 'EN' ? 'Search projects...' : 'Cari proyek...'}
@@ -102,18 +126,18 @@ const Project = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full px-4 py-2 mb-4 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
         />
-        <div className="flex flex-wrap mb-4 space-x-2">
-          {['All', 'Personal Project', 'Capstone Project', 'Thesis', 'Website Developer', 'Mobile Developer', 'Artificial Intelligence'].map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setSelectedTag(tag)}
-              className={`px-3 py-1 mb-2 rounded-full ${
-                selectedTag === tag ? 'bg-blue-500 text-white' : 'bg-gray-200 dark:bg-gray-700 dark:text-gray-400'
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
+        <div className="mb-4">
+          <select
+            value={selectedTag}
+            onChange={(e) => setSelectedTag(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          >
+            {['All','Thesis', 'Software Engineer', 'Website Developer', 'Mobile Developer', 'Artificial Intelligence', 'Game Developer', 'UI/UX Design'].map((tag) => (
+              <option key={tag} value={tag}>
+                {tag}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="grid grid-cols-1 gap-4">
           {filteredProjects.map((project, index) => (
