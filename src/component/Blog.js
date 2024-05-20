@@ -55,8 +55,15 @@ const Blog = () => {
         </button>
       </div>
       <div className="flex flex-col items-center mb-16 space-y-4 sm:flex-row sm:justify-center sm:items-center sm:space-x-8">
-        <div className="text-center">
-          <h3 className="text-xl font-semibold">{language === 'EN' ? 'Coming Soon' : 'Segera Hadir'}</h3>
+        <div className="w-full max-w-md p-4 text-center bg-yellow-100 border border-yellow-400 rounded-lg dark:bg-yellow-200 dark:border-yellow-500">
+          <h3 className="text-xl font-semibold text-yellow-700 dark:text-yellow-800">
+            {language === 'EN' ? 'Coming Soon' : 'Segera Hadir'}
+          </h3>
+          <p className="mt-2 text-yellow-600 dark:text-yellow-700">
+            {language === 'EN'
+              ? 'Stay tuned for updates on our latest blog posts!'
+              : 'Tetap disini untuk pembaruan tentang posting blog terbaru kami!'}
+          </p>
         </div>
       </div>
       <div className="fixed bottom-0 left-0 right-0 bg-white shadow-md dark:bg-gray-800">
@@ -84,4 +91,3 @@ const Blog = () => {
 };
 
 export default Blog;
-

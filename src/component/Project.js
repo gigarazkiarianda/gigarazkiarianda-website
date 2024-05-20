@@ -5,7 +5,9 @@ import {
   FolderIcon,
   NewspaperIcon,
   MoonIcon,
-  SunIcon
+  SunIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
 } from '@heroicons/react/outline';
 
 const Project = () => {
@@ -14,6 +16,9 @@ const Project = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 10;
+
   const [projects, setProjects] = useState([
     {
       name: {
@@ -25,7 +30,9 @@ const Project = () => {
         ID: 'Proyek ini adalah tugas akhir saya sebagai syarat untuk memperoleh gelar sarjana teknik. Proyek ini memiliki fungsi untuk menyalakan dan mematikan kipas menggunakan suara dari beberapa bahasa yang telah dilatih melalui Python dan dikomunikasikan pada Arduino Uno menggunakan komunikasi serial.'
       },
       image: '/assets/project1.jpg',
-      tag: 'Thesis'
+      tag: 'Thesis',
+      client: 'University',
+      languages: ['Python', 'Arduino']
     },
     {
       name: {
@@ -37,7 +44,9 @@ const Project = () => {
         ID: 'Proyek ini merupakan implementasi klasik dari permainan "Snake" menggunakan bahasa pemrograman Python. Tujuan dari proyek ini adalah untuk memberikan pemahaman yang lebih mendalam tentang bahasa pemrograman Python melalui pengembangan game sederhana.'
       },
       image: '/assets/snake-game.png',
-      tag: 'Game Developer'
+      tag: 'Game Developer',
+      client: 'Personal Project',
+      languages: ['Python']
     },
     {
       name: {
@@ -50,7 +59,24 @@ const Project = () => {
       },
       image: '/assets/rock-paper-scissor.png',
       tag: 'Artificial Intelligence',
+      client: 'Research Project',
+      languages: ['Python', 'TensorFlow']
+    }, 
+    {
+      name: {
+        EN: 'Simple Calculator',
+        ID: 'Kalkulator Sederhana'
+      }, 
+      description: {
+        EN: 'This project is a simple calculator created using Python. This calculator is designed to perform basic operations such as addition, subtraction, multiplication, and division. The goal of this project is to provide users with an easy-to-use tool to perform simple mathematical calculations.',
+        ID: 'Proyek ini adalah sebuah kalkulator sederhana yang dibuat menggunakan Python. Kalkulator ini dirancang untuk melakukan operasi dasar seperti penjumlahan, pengurangan, perkalian, dan pembagian. Tujuan dari proyek ini adalah untuk memberikan pengguna alat yang mudah digunakan untuk melakukan perhitungan matematika sederhana.'
+      },
+          image: '/assets/simple-calculator.png',
+          tag: 'Software Engineer',
+          client: 'Personal',
+          languages: ['Python']
     }
+    
   ]);
 
   useEffect(() => {
@@ -90,6 +116,14 @@ const Project = () => {
       (selectedTag === 'All' || project.tag === selectedTag) &&
       project.name[language].toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const indexOfLastProject = currentPage * projectsPerPage;
+  const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+  const currentProjects = filteredProjects.slice(indexOfFirstProject, indexOfLastProject);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
 
   const closeModal = () => {
     setSelectedProject(null);
@@ -132,7 +166,7 @@ const Project = () => {
             onChange={(e) => setSelectedTag(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           >
-            {['All','Thesis', 'Software Engineer', 'Website Developer', 'Mobile Developer', 'Artificial Intelligence', 'Game Developer', 'UI/UX Design'].map((tag) => (
+            {['All', 'Thesis', 'Software Engineer', 'Website Developer', 'Mobile Developer', 'Artificial Intelligence', 'Game Developer', 'UI/UX Design'].map((tag) => (
               <option key={tag} value={tag}>
                 {tag}
               </option>
@@ -140,7 +174,7 @@ const Project = () => {
           </select>
         </div>
         <div className="grid grid-cols-1 gap-4">
-          {filteredProjects.map((project, index) => (
+          {currentProjects.map((project, index) => (
             <div
               key={index}
               className="flex overflow-hidden bg-white rounded-lg shadow-lg cursor-pointer dark:bg-gray-800"
@@ -175,6 +209,24 @@ const Project = () => {
             </div>
           ))}
         </div>
+        <div className="flex justify-between mt-8">
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="flex items-center px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-full hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <ArrowLeftIcon className="w-5 h-5 mr-2" />
+            {language === 'EN' ? 'Previous' : 'Sebelumnya'}
+          </button>
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className="flex items-center px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-full hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {language === 'EN' ? 'Next' : 'Berikutnya'}
+            <ArrowRightIcon className="w-5 h-5 ml-2" />
+          </button>
+        </div>
       </div>
       {selectedProject && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" onClick={closeModal}>
@@ -182,6 +234,18 @@ const Project = () => {
             <img src={selectedProject.image} alt={selectedProject.name[language]} className="object-cover w-full h-32 mt-4 sm:h-48" />
             <h3 className="text-lg font-semibold">{selectedProject.name[language]}</h3>
             <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{selectedProject.description[language]}</p>
+            <div className="mt-4">
+              <h4 className="text-sm font-semibold">{language === 'EN' ? 'Category:' : 'Kategori:'}</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-400">{selectedProject.tag}</p>
+            </div>
+            <div className="mt-4">
+              <h4 className="text-sm font-semibold">{language === 'EN' ? 'Client:' : 'Klien:'}</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-400">{selectedProject.client}</p>
+            </div>
+            <div className="mt-4">
+              <h4 className="text-sm font-semibold">{language === 'EN' ? 'Programming Languages:' : 'Bahasa Pemrograman:'}</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-400">{selectedProject.languages.join(', ')}</p>
+            </div>
             <div className="flex justify-end mt-4">
               <button onClick={closeModal} className="px-4 py-2 text-sm font-semibold text-white bg-red-500 rounded-full hover:bg-red-600">
                 {language === 'EN' ? 'Close' : 'Tutup'}

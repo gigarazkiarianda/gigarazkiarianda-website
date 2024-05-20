@@ -78,6 +78,16 @@ const Profile = () => {
           type: 'remote'
         },
       ],
+      techStackDetails: {
+        programmingLanguages: ['HTML5', 'CSS3', 'Javascript', 'Python', 'C++'],
+        databases: ['MYSQL', 'FIREBASE'],
+        frontendFrameworks: ['React', 'Expo', 'Streamlit', 'TailwindCSS', 'Bootstrap'],
+        backendFramework: ['ExpressJs', 'Flask'],
+        hosting: ['Vercel'],
+        AI: ['TensorFlow', 'Keras', 'Scikit-learn', 'Pandas', 'Numpy', 'Matplotlib'],
+        design: ['Figma', 'Adobe Photoshop', 'Adobe Illustrator', "Adobe XD"],
+        projectManager: ['Trello', 'Notion']
+      }
     },
     ID: {
       title: 'Giga Razki Arianda',
@@ -90,11 +100,13 @@ const Profile = () => {
       schools: [
         {
           name: 'Universitas Dinamika',
+          location: 'Surabaya, Indonesia',
           degree: 'Teknik Komputer',
           years: '2020 - 2024',
         },
         {
           name: 'SMA Negeri 2 Bangkalan',
+          location: 'Bangkalan, Indonesia',
           degree: 'IPA',
           years: '2017 - 2020',
         },
@@ -115,11 +127,21 @@ const Profile = () => {
           type: 'remote'
         },
       ],
+      techStackDetails: {
+        programmingLanguages: ['HTML5', 'CSS3', 'Javascript', 'Python', 'C++'],
+        databases: ['MYSQL', 'FIREBASE'],
+        frontendFrameworks: ['React', 'Expo', 'Streamlit', 'TailwindCSS', 'Bootstrap'],
+        backendFramework: ['ExpressJs', 'Flask'],
+        hosting: ['Vercel'],
+        AI: ['TensorFlow', 'Keras', 'Scikit-learn', 'Pandas', 'Numpy', 'Matplotlib'],
+        design: ['Figma', 'Adobe Photoshop', 'Adobe Illustrator', "Adobe XD"],
+        projectManager: ['Trello', 'Notion']
+      }
     },
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen p-4 pb-20 overflow-y-auto bg-gray-100 dark:bg-gray-900 dark:text-white">
+    <div className="relative flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100 dark:bg-gray-900 dark:text-white">
       <div className="absolute flex items-center space-x-4 top-4 right-4">
         <button onClick={toggleLanguage} className="focus:outline-none">
           <span className="text-lg font-bold">{language === 'EN' ? 'ID' : 'EN'}</span>
@@ -154,7 +176,7 @@ const Profile = () => {
           </a>
         </div>
       </div>
-      <div className="w-full max-w-5xl px-4 space-y-8 text-justify">
+      <div className="w-full max-w-5xl px-4 pb-20 space-y-8 text-justify">
         <div>
           <p className="text-lg leading-relaxed">{content[language].bio}</p>
         </div>
@@ -220,8 +242,59 @@ const Profile = () => {
         {dropdown === 'techStack' && (
           <div>
             <h2 className="mb-4 text-2xl font-bold">{content[language].techStack}</h2>
-            <div className="space-y-4">
-              <p className="text-lg leading-relaxed">Tech Stack details will be displayed here.</p>
+            <div className="flex flex-wrap -mx-2">
+              <div className="w-full px-2 lg:w-1/2">
+                <h3 className="text-xl font-semibold">Programming Languages</h3>
+                <ul className="space-y-2">
+                  {content[language].techStackDetails.programmingLanguages.map((lang, index) => (
+                    <li key={index} className="p-2 bg-green-200 rounded bg-opacity-40">{lang}</li>
+                  ))}
+                </ul>
+                <h3 className="mt-4 text-xl font-semibold">Databases</h3>
+                <ul className="space-y-2">
+                  {content[language].techStackDetails.databases.map((db, index) => (
+                    <li key={index} className="p-2 bg-green-200 rounded bg-opacity-40">{db}</li>
+                  ))}
+                </ul>
+                <h3 className="mt-4 text-xl font-semibold">Frontend Frameworks</h3>
+                <ul className="space-y-2">
+                  {content[language].techStackDetails.frontendFrameworks.map((framework, index) => (
+                    <li key={index} className="p-2 bg-green-200 rounded bg-opacity-40">{framework}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="w-full px-2 lg:w-1/2">
+                <h3 className="text-xl font-semibold">Backend Frameworks</h3>
+                <ul className="space-y-2">
+                  {content[language].techStackDetails.backendFramework.map((framework, index) => (
+                    <li key={index} className="p-2 bg-green-200 rounded bg-opacity-40">{framework}</li>
+                  ))}
+                </ul>
+                <h3 className="mt-4 text-xl font-semibold">Hosting</h3>
+                <ul className="space-y-2">
+                  {content[language].techStackDetails.hosting.map((host, index) => (
+                    <li key={index} className="p-2 bg-green-200 rounded bg-opacity-40">{host}</li>
+                  ))}
+                </ul>
+                <h3 className="mt-4 text-xl font-semibold">Artificial Intelligence</h3>
+                <ul className="space-y-2">
+                  {content[language].techStackDetails.AI.map((ai, index) => (
+                    <li key={index} className="p-2 bg-green-200 rounded bg-opacity-40">{ai}</li>
+                  ))}
+                </ul>
+                <h3 className="mt-4 text-xl font-semibold">Design</h3>
+                <ul className="space-y-2">
+                  {content[language].techStackDetails.design.map((design, index) => (
+                    <li key={index} className="p-2 bg-green-200 rounded bg-opacity-40">{design}</li>
+                  ))}
+                </ul>
+                <h3 className="mt-4 text-xl font-semibold">Project Management</h3>
+                <ul className="space-y-2">
+                  {content[language].techStackDetails.projectManager.map((pm, index) => (
+                    <li key={index} className="p-2 bg-green-200 rounded bg-opacity-40">{pm}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         )}
