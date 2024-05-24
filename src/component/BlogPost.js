@@ -67,9 +67,11 @@ const BlogPost = () => {
           {language === 'EN' ? 'Author' : 'Penulis'}: Giga Razki Arianda
         </p>
         <div className="flex justify-center mt-4">
-          <img src={post.img} alt={post.title[language]} className="w-full h-auto max-w-2xl rounded-lg" />
+          <img src={post.img} alt={post.title[language]} className="w-full h-auto max-w-2xl mx-auto rounded-lg" />
         </div>
-        <div className="mt-4 text-gray-600 dark:text-gray-400">{post.content[language]}</div>
+        <div className="mt-4 prose text-gray-600 dark:text-gray-400 dark:prose-dark">
+          <div dangerouslySetInnerHTML={{ __html: post.content[language] }} />
+        </div>
       </div>
       <footer className="fixed bottom-0 left-0 right-0 bg-gray-100 dark:bg-gray-800">
         <div className="flex justify-around py-4">

@@ -75,8 +75,36 @@ const Project = () => {
           tag: 'Software Engineer',
           client: 'Personal',
           languages: ['Python']
+    },
+
+    {
+      name: {
+        EN: 'Puzzle Game',
+        ID: 'Permainan Puzzle'
+      }, 
+      description: {
+        EN: 'This program is an implementation of the Sliding Puzzle puzzle game using the C++ programming language. This game requires the player to move the numbers in a grid box to arrange them in the correct order. Each grid box has a number, except for one empty box. The players goal is to arrange the numbers in the correct order by moving the empty squares to the correct positions.',
+        ID: 'Program ini merupakan implementasi dari permainan puzzle Sliding Puzzle menggunakan bahasa pemrograman C++. Permainan ini mengharuskan pemain untuk menggerakkan angka-angka dalam kotak grid untuk menyusun urutan yang benar. Setiap kotak grid memiliki angka, kecuali satu kotak yang kosong. Tujuan pemain adalah menyusun angka-angka tersebut dalam urutan yang benar dengan memindahkan kotak kosong ke posisi yang tepat.'
+      },
+          image: '/assets/puzzle-game.png',
+          tag: 'Game Developer',
+          client: 'Personal',
+          languages: ['C++']
+    },
+    {
+      name: {
+        EN: 'Salary Calculator',
+        ID: 'Kalkulator Gaji'
+      }, 
+      description: {
+        EN: 'This project develops a gross salary calculator using the C++ programming language. This calculator is designed to calculate net salary from gross salary taking into account tax percentages and other deductions. Users will enter gross salary, tax percentage, and other relevant deduction values. The program then calculates the taxes due and total deductions, then subtracts these amounts from the gross salary to get the net salary. This project combines basic programming concepts such as input/output, data processing, and the use of arithmetic operators to provide accurate and efficient results',
+        ID: 'Proyek ini mengembangkan sebuah kalkulator gaji kotor menggunakan bahasa pemrograman C++. Kalkulator ini dirancang untuk menghitung gaji bersih dari gaji kotor dengan mempertimbangkan persentase pajak dan potongan lainnya. Pengguna akan memasukkan gaji kotor, persentase pajak, dan nilai potongan lain yang relevan. Program kemudian menghitung pajak yang harus dibayar dan total potongan, lalu mengurangi jumlah ini dari gaji kotor untuk mendapatkan gaji bersih. Proyek ini menggabungkan konsep dasar pemrograman seperti input/output, pengolahan data, dan penggunaan operator aritmetika untuk memberikan hasil yang akurat dan efisien.'
+      },
+          image: '/assets/salary-calculator.png',
+          tag: 'Software Engineer',
+          client: 'Personal',
+          languages: ['C++']
     }
-    
   ]);
 
   useEffect(() => {
