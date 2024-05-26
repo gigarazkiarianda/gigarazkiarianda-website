@@ -81,7 +81,7 @@ const Blog = () => {
           )}
         </button>
       </div>
-      <div className="flex-grow w-full px-4 py-8">
+      <div className="flex-grow w-full px-4 py-8 mt-14">
         <div className="flex flex-col w-full max-w-4xl mx-auto space-y-4">
           <input
             type="text"

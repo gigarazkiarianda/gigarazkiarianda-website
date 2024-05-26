@@ -71,7 +71,7 @@ const Project = () => {
         </button>
       </div>
       <div className="flex flex-col items-center mb-16 space-y-4 sm:flex-row sm:justify-center sm:items-center sm:space-x-8">
-        <div className="text-center">
+        <div className="text-center mt-14">
           <h3 className="text-xl font-semibold">{language === 'EN' ? 'Projects' : 'Proyek'}</h3>
         </div>
       </div>
@@ -121,7 +121,7 @@ const Project = () => {
                     {project.tag}
                   </span>
                   <Link
-                    to={`/project/${project.id}`} // Assuming project has an id
+                    to={`/project/${project.id}`} 
                     className="px-3 py-1 text-xs font-semibold text-white bg-blue-500 rounded-full hover:bg-blue-600"
                   >
                     {language === 'EN' ? 'Details' : 'Detail'}

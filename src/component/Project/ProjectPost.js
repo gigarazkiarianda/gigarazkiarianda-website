@@ -73,7 +73,7 @@ const ProjectPost = () => {
           )}
         </button>
       </div>
-      <main className="container flex-grow p-4 mx-auto mt-12">
+      <main className="container flex-grow p-4 mx-auto mt-12 mb-12">
         <h1 className="mb-4 text-2xl font-semibold text-center">{projectName}</h1>
         <p className="flex items-center justify-center mb-4"> <span className="flex items-center"><GlobeAltIcon className="w-4 h-4 mr-1 " />{projectLanguages}</span></p>
         <img src={project.image} alt={projectName} className="object-cover w-full mx-auto mt-10 mb-4 rounded-lg md:w-auto md:max-h-80"  />

@@ -55,23 +55,23 @@ const BlogPost = () => {
           )}
         </button>
       </div>
-      <div className="w-full max-w-4xl p-6 overflow-y-auto bg-transparent" style={{ marginBottom: '64px' }}>
-        <p className="text-sm text-center text-gray-500 dark:text-gray-400">
-          {new Date(post.date).toLocaleDateString(language === 'EN' ? 'en-US' : 'id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
-        </p>
+      <div className="w-full max-w-4xl p-6 overflow-y-auto bg-transparent mt-14" style={{ marginBottom: '64px' }}>
         <h1 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200">{post.title[language]}</h1>
         <p className="text-sm text-center text-gray-500 dark:text-gray-400">
-          {language === 'EN' ? 'Category' : 'Kategori'}: {post.category[language]}
-        </p>
-        <p className="text-sm text-center text-gray-500 dark:text-gray-400">
-          {language === 'EN' ? 'Author' : 'Penulis'}: Giga Razki Arianda
-        </p>
+        {language === 'EN' ? 'Category' : 'Kategori'}: {post.category[language]}
+      </p>
         <div className="flex justify-center mt-4">
           <img src={post.img} alt={post.title[language]} className="w-full h-auto max-w-2xl mx-auto rounded-lg" />
         </div>
         <div className="mt-4 prose text-gray-600 dark:text-gray-400 dark:prose-dark">
           <div dangerouslySetInnerHTML={{ __html: post.content[language] }} />
         </div>
+        <p className="mt-6 text-sm text-gray-500 dark:text-gray-400">
+          {new Date(post.date).toLocaleDateString(language === 'EN' ? 'en-US' : 'id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          {language === 'EN' ? 'Author' : 'Penulis'}: Giga Razki Arianda
+        </p>
       </div>
       <footer className="fixed bottom-0 left-0 right-0 bg-gray-100 dark:bg-gray-800">
         <div className="flex justify-around py-4">

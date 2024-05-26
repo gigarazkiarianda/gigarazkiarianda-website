@@ -154,7 +154,7 @@ const Profile = () => {
           )}
         </button>
       </div>
-      <div className="flex flex-col items-center mb-8 space-y-4">
+      <div className="flex flex-col items-center mb-8 space-y-4 mt-14">
         <img
           src="/assets/profile.png"
           alt="Profile"
