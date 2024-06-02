@@ -43,6 +43,12 @@ const BlogPost = () => {
 
   return (
     <div className={`flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-white ${darkMode ? 'dark' : ''}`}>
+    <Helmet>
+        <title>{post.title[language]}</title>
+        <meta property="og:title" content={post.title[language]} />
+        <meta property="og:image" content={post.img} /> {/* Set the image URL here */}
+        <meta property="og:description" content={post.content[language].substring(0, 50)} /> {/* Set the description here */}
+      </Helmet>
       <div className="absolute flex items-center space-x-4 top-4 right-4">
         <button onClick={toggleLanguage} className="focus:outline-none">
           <span className="text-lg font-bold">{language === 'EN' ? 'ID' : 'EN'}</span>
