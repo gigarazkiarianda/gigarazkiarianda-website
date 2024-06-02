@@ -77,7 +77,7 @@ const ProjectPost = () => {
         <h1 className="mb-4 text-2xl font-semibold text-center">{projectName}</h1>
         <p className="flex items-center justify-center mb-4"> <span className="flex items-center"><GlobeAltIcon className="w-4 h-4 mr-1 " />{projectLanguages}</span></p>
         <img src={project.image} alt={projectName} className="object-cover w-full mx-auto mt-10 mb-4 rounded-lg md:w-auto md:max-h-80"  />
-        <p className="mb-4">{projectDescription}</p>
+        <p className="mb-4" dangerouslySetInnerHTML={{ __html: projectDescription }}></p>
         <p className="mb-4"> <span className="flex items-center"><CollectionIcon className="w-4 h-4 mr-1" />{projectTag}</span></p>
         <p className="mb-4"> <span className="flex items-center"><UserGroupIcon className="w-4 h-4 mr-1" />{projectClient}</span></p>
         

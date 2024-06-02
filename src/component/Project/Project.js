@@ -104,24 +104,20 @@ const Project = () => {
             >
               <img
                 src={project.image}
-                alt={project.name && project.name[language]} 
+                alt={project.name && project.name[language]}
                 className="object-cover w-32 h-32 sm:w-48 sm:h-48"
               />
               <div className="flex flex-col justify-between flex-1 p-4">
                 <div>
-                  <h3 className="text-lg font-semibold">{project.name && project.name[language]}</h3> 
-                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                    {project.description && project.description[language] && project.description[language].length > 100
-                      ? project.description[language].substring(0, 100) + '...'
-                      : project.description && project.description[language]} 
-                  </p>
+                  <h3 className="text-lg font-semibold">{project.name && project.name[language]}</h3>
+                  <p className="mt-2 mb-4 text-sm text-gray-600 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: project.description && project.description[language] && project.description[language].length > 100 ? project.description[language].substring(0, 100) + '...' : project.description && project.description[language] }}></p>
                 </div>
                 <div className="flex items-center justify-between mt-4">
                   <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-600 bg-blue-200 rounded-full dark:bg-blue-700 dark:text-blue-100">
                     {project.tag}
                   </span>
                   <Link
-                    to={`/project/${project.id}`} 
+                    to={`/project/${project.id}`}
                     className="px-3 py-1 text-xs font-semibold text-white bg-blue-500 rounded-full hover:bg-blue-600"
                   >
                     {language === 'EN' ? 'Details' : 'Detail'}
